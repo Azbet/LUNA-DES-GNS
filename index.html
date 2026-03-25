@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+ <meta charset="utf-8" />
+ <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+ <link
+  href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Manrope:wght@300;400;600;800&amp;display=swap"
+  rel="stylesheet" />
+ <link
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+  rel="stylesheet" />
+ <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+ <script id="tailwind-config">
+  tailwind.config = {
+   darkMode: "class",
+   theme: {
+    extend: {
+     colors: {
+      "on-secondary-fixed": "#1c1c0f",
+      "on-primary-fixed": "#1d1d03",
+      "tertiary": "#ffffff",
+      "surface-container-high": "#1e2433",
+      "surface-container": "#151b29",
+      "secondary": "#cac7b3",
+      "outline-variant": "#48473d",
+      "on-tertiary": "#203434",
+      "tertiary-container": "#d1e7e7",
+      "tertiary-fixed": "#d1e7e7",
+      "inverse-primary": "#60603e",
+      "on-primary-fixed-variant": "#484828",
+      "secondary-fixed-dim": "#cac7b3",
+      "on-tertiary-fixed": "#0b1f1f",
+      "on-error-container": "#ffdad6",
+      "on-surface-variant": "#c9c7b9",
+      "on-tertiary-fixed-variant": "#374a4b",
+      "primary-fixed": "#e6e5b9",
+      "primary-container": "#e6e5b9",
+      "surface-bright": "#252c3d",
+      "surface": "#0a101e",
+      "on-secondary": "#313123",
+      "surface-tint": "#cac99f",
+      "on-secondary-container": "#bfbca9",
+      "tertiary-fixed-dim": "#b5cbcb",
+      "surface-container-lowest": "#050a14",
+      "on-secondary-fixed-variant": "#484738",
+      "surface-container-low": "#0d1424",
+      "surface-variant": "#1c2436",
+      "secondary-fixed": "#e6e3ce",
+      "inverse-on-surface": "#313030",
+      "error-container": "#93000a",
+      "on-background": "#e5e2e1",
+      "primary": "#ffffff",
+      "inverse-surface": "#e5e2e1",
+      "surface-container-highest": "#283145",
+      "on-primary": "#323214",
+      "on-tertiary-container": "#546868",
+      "on-primary-container": "#666643",
+      "outline": "#939185",
+      "error": "#ffb4ab",
+      "on-surface": "#e5e2e1",
+      "on-error": "#690005",
+      "primary-fixed-dim": "#cac99f",
+      "secondary-container": "#4d4c3d",
+      "background": "#0a101e",
+      "surface-dim": "#0a101e"
+     },
+     fontFamily: {
+      "headline": ["Noto Serif", "serif"],
+      "body": ["Manrope", "sans-serif"],
+      "label": ["Manrope", "sans-serif"]
+     },
+     borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" },
+     animation: {
+      'infinite-scroll': 'infinite-scroll 40s linear infinite',
+      'infinite-scroll-reverse': 'infinite-scroll-reverse 40s linear infinite',
+     },
+     keyframes: {
+      'infinite-scroll': {
+       from: { transform: 'translateX(0)' },
+       to: { transform: 'translateX(-50%)' },
+      },
+      'infinite-scroll-reverse': {
+       from: { transform: 'translateX(-50%)' },
+       to: { transform: 'translateX(0)' },
+      }
+     }
+    },
+   },
+  }
+ </script>
+ <style>
+  html {
+   scroll-behavior: smooth;
+  }
+
+  body {
+   background-color: #0a101e;
+   color: #fffdd0;
+  }
+
+  .material-symbols-outlined {
+   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+
+  .glass-nav {
+   background-color: rgba(10, 16, 30, 0.85);
+   backdrop-filter: blur(20px);
+  }
+
+  .kerning-tight {
+   letter-spacing: -0.02em;
+  }
+
+  .kerning-wide {
+   letter-spacing: 0.1em;
+  }
+
+  .vertical-text {
+   writing-mode: vertical-rl;
+  }
+
+  .carousel-track {
+   width: max-content;
+  }
+ </style>
+</head>
+
+<body class="font-body selection:bg-primary-container selection:text-on-primary-container">
+ <!-- Navbar -->
+ <nav class="fixed top-0 left-0 w-full z-50 glass-nav">
+  <div class="flex justify-between items-center w-full px-8 py-6 mx-auto">
+   <a class="flex items-center" href="#hero">
+    <img alt="LNA Designs" class="h-8 md:h-10 w-auto object-contain"
+     src="asset/LUNA LOGO.png" />
+   </a>
+   <div class="hidden md:flex items-center gap-12">
+    <a
+     class="font-label uppercase tracking-widest text-[0.75rem] text-[#fffdd0] border-b border-[#fffdd0] pb-1 hover:text-[#ffffff] transition-all duration-300 ease-in-out"
+     href="#work">Work</a>
+    <a
+     class="font-label uppercase tracking-widest text-[0.75rem] text-[#cac7b3] hover:text-[#ffffff] transition-all duration-300 ease-in-out"
+     href="#about">About</a>
+    <a
+     class="font-label uppercase tracking-widest text-[0.75rem] border-b border-outline hover:bg-primary-container hover:text-on-primary-container px-4 py-2 transition-all duration-300"
+     href="#contact">Hire Me</a>
+   </div>
+   <!-- Mobile Menu Icon (Visual Only) -->
+   <div class="md:hidden">
+    <span class="material-symbols-outlined text-[#fffdd0]">menu</span>
+   </div>
+  </div>
+ </nav>
+ <main>
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col justify-center px-8 pt-32 pb-20 max-w-screen-2xl mx-auto" id="hero">
+   <div class="max-w-4xl">
+    <p class="font-label text-[0.75rem] uppercase tracking-[0.2em] text-secondary mb-8">Selected Portfolio 2026</p>
+    <h1
+     class="font-headline text-6xl md:text-8xl lg:text-9xl font-bold text-[#fffdd0] kerning-tight leading-[0.9] mb-12">
+     Visual <span class="italic font-normal">Poetry</span> Through Form.
+    </h1>
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+     <p class="text-lg md:text-xl text-on-surface max-w-xl leading-relaxed">
+      An editorial-driven design studio focused on high-end brand identities and digital monographs for the culturally
+      curious.
+     </p>
+     <a class="group flex items-center gap-4 font-label uppercase text-[0.75rem] tracking-widest" href="#work">
+      <span>Explore Works</span>
+      <span
+       class="material-symbols-outlined transform group-hover:translate-x-2 transition-transform">arrow_downward</span>
+     </a>
+    </div>
+   </div>
+  </section>
+  <!-- Dynamic Work Section (Infinite Carousels) -->
+  <section class="bg-surface-container-low py-24 md:py-40 overflow-hidden" id="work">
+   <div class="px-8 max-w-screen-2xl mx-auto mb-20">
+    <div class="flex justify-between items-baseline">
+     <h2 class="font-headline text-4xl md:text-5xl font-bold kerning-tight text-[#fffdd0]">The Gallery</h2>
+     <span class="font-label text-xs uppercase tracking-widest text-secondary">Collections 01 — 04</span>
+    </div>
+   </div>
+   <div class="space-y-32">
+    <!-- Carousel 1: Aura Monograph -->
+    <div class="group">
+     <div class="px-8 max-w-screen-2xl mx-auto mb-8 flex justify-between items-end">
+      <div>
+       <h3 class="font-headline text-2xl text-[#fffdd0]">Aura Monograph</h3>
+       <p class="font-label text-xs uppercase tracking-widest text-secondary mt-1">Editorial Design / Print</p>
+      </div>
+      <span class="font-label text-[0.6rem] uppercase tracking-widest text-secondary opacity-50">Collection 01</span>
+     </div>
+     <div class="relative flex overflow-hidden">
+      <div class="flex animate-infinite-scroll hover:[animation-play-state:paused] carousel-track gap-8">
+       <!-- Original Set -->
+       <div class="w-[400px] aspect-[4/5] bg-surface-container-high overflow-hidden">
+        <img alt="Pure Aura Cleanser"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/1.webp" />
+       </div>
+       <div class="w-[500px] aspect-[16/10] bg-surface-container-high overflow-hidden">
+        <img alt="Pure Aura Product Stack"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/2.webp" />
+       </div>
+       <div class="w-[350px] aspect-[3/4] bg-surface-container-high overflow-hidden">
+        <img alt="Pure Aura Branding Palette"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/3.webp" />
+       </div>
+       <div class="w-[450px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Pure Aura Logo Variations"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/4.webp" />
+       </div>
+       <div class="w-[400px] aspect-[4/5] bg-surface-container-high overflow-hidden">
+        <img alt="Pure Aura Product Application"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/5.webp" />
+       </div>
+       <!-- Duplicated Set for Loop -->
+       <div class="w-[400px] aspect-[4/5] bg-surface-container-high overflow-hidden">
+        <img alt="Pure Aura Cleanser"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/1.webp" />
+       </div>
+       <div class="w-[500px] aspect-[16/10] bg-surface-container-high overflow-hidden">
+        <img alt="Pure Aura Product Stack"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/2.webp" />
+       </div>
+       <div class="w-[350px] aspect-[3/4] bg-surface-container-high overflow-hidden">
+        <img alt="Pure Aura Branding Palette"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/3.webp" />
+       </div>
+       <div class="w-[450px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Pure Aura Logo Variations"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/4.webp" />
+       </div>
+       <div class="w-[400px] aspect-[4/5] bg-surface-container-high overflow-hidden">
+        <img alt="Pure Aura Product Application"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/5.webp" />
+       </div>
+      </div>
+     </div>
+    </div>
+    <!-- Carousel 2: Nocturne Identity (Reverse Direction) -->
+    <div class="group">
+     <div class="px-8 max-w-screen-2xl mx-auto mb-8 flex justify-between items-end">
+      <div>
+       <h3 class="font-headline text-2xl text-[#fffdd0]">Nocturne Identity</h3>
+       <p class="font-label text-xs uppercase tracking-widest text-secondary mt-1">Luxury Branding / 2023</p>
+      </div>
+      <span class="font-label text-[0.6rem] uppercase tracking-widest text-secondary opacity-50">Collection 02</span>
+     </div>
+     <div class="relative flex overflow-hidden">
+      <div class="flex animate-infinite-scroll-reverse hover:[animation-play-state:paused] carousel-track gap-8">
+       <!-- Original Set -->
+       <div class="w-[450px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Nocturne Identity 1"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/6.webp" />
+       </div>
+       <div class="w-[450px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Nocturne Identity 2"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/7.webp" />
+       </div>
+       <div class="w-[450px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Nocturne Identity 3"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/8.webp" />
+       </div>
+       <div class="w-[450px] aspect-[1080/1495] bg-surface-container-high overflow-hidden">
+        <img alt="Nocturne Identity 4"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/9.webp" />
+       </div>
+       <!-- Duplicated Set -->
+       <div class="w-[450px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Nocturne Identity 1"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/6.webp" />
+       </div>
+       <div class="w-[450px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Nocturne Identity 2"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/7.webp" />
+       </div>
+       <div class="w-[450px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Nocturne Identity 3"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/8.webp" />
+       </div>
+       <div class="w-[450px] aspect-[1080/1495] bg-surface-container-high overflow-hidden">
+        <img alt="Nocturne Identity 4"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/9.webp" />
+       </div>
+      </div>
+     </div>
+    </div>
+    <!-- Carousel 3: Kinetic Type -->
+    <div class="group">
+     <div class="px-8 max-w-screen-2xl mx-auto mb-8 flex justify-between items-end">
+      <div>
+       <h3 class="font-headline text-2xl text-[#fffdd0]">Kinetic Type</h3>
+       <p class="font-label text-xs uppercase tracking-widest text-secondary mt-1">Motion Graphics / Experimental</p>
+      </div>
+      <span class="font-label text-[0.6rem] uppercase tracking-widest text-secondary opacity-50">Collection 03</span>
+     </div>
+     <div class="relative flex overflow-hidden">
+      <div class="flex animate-infinite-scroll hover:[animation-play-state:paused] carousel-track gap-8">
+       <!-- Original Set -->
+       <div class="w-[400px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Cheerful Coffee Cup"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/10.webp" />
+       </div>
+       <div class="w-[400px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Cheerful Coffee Logo Wood"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/11.webp" />
+       </div>
+       <div class="w-[400px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Cheerful Coffee Signage"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/12.webp" />
+       </div>
+       <div class="w-[400px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Cheerful Coffee Packaging"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/13.webp" />
+       </div>
+       <div class="w-[400px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Cheerful Coffee Takeaway"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/14.webp" />
+       </div>
+       <!-- Duplicated Set -->
+       <div class="w-[400px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Cheerful Coffee Cup"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/10.webp" />
+       </div>
+       <div class="w-[400px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Cheerful Coffee Logo Wood"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/11.webp" />
+       </div>
+       <div class="w-[400px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Cheerful Coffee Signage"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/12.webp" />
+       </div>
+       <div class="w-[400px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Cheerful Coffee Packaging"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/13.webp" />
+       </div>
+       <div class="w-[400px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Cheerful Coffee Takeaway"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/14.webp" />
+       </div>
+      </div>
+     </div>
+    </div>
+    <!-- Carousel 4: The Archives -->
+    <div class="group pb-12">
+     <div class="px-8 max-w-screen-2xl mx-auto mb-8 flex justify-between items-end">
+      <div>
+       <h3 class="font-headline text-2xl text-[#fffdd0]">The Archives</h3>
+       <p class="font-label text-xs uppercase tracking-widest text-secondary mt-1">Web Platform / UI/UX</p>
+      </div>
+      <span class="font-label text-[0.6rem] uppercase tracking-widest text-secondary opacity-50">Collection 04</span>
+     </div>
+     <div class="relative flex overflow-hidden">
+      <div class="flex animate-infinite-scroll-reverse hover:[animation-play-state:paused] carousel-track gap-8">
+       <!-- Original Set -->
+       <div class="w-[450px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Samurai Spa Logo"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/15.webp" />
+       </div>
+       <div class="w-[400px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Samurai Spa Wall"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/16.webp" />
+       </div>
+       <div class="w-[500px] aspect-[4/3] bg-surface-container-high overflow-hidden">
+        <img alt="Samurai Spa Card"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/17.webp" />
+       </div>
+       <div class="w-[450px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Samurai Spa Exterior"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/18.webp" />
+       </div>
+       <div class="w-[400px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Samurai Spa Collage"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/19.webp" />
+       </div>
+       <div class="w-[500px] aspect-[4/3] bg-surface-container-high overflow-hidden">
+        <img alt="Samurai Spa Treatment"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/20.webp" />
+       </div>
+       <!-- Duplicated Set for Loop -->
+       <div class="w-[450px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Samurai Spa Logo"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/15.webp" />
+       </div>
+       <div class="w-[400px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Samurai Spa Wall"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/16.webp" />
+       </div>
+       <div class="w-[500px] aspect-[4/3] bg-surface-container-high overflow-hidden">
+        <img alt="Samurai Spa Card"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/17.webp" />
+       </div>
+       <div class="w-[450px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Samurai Spa Exterior"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/18.webp" />
+       </div>
+       <div class="w-[400px] aspect-square bg-surface-container-high overflow-hidden">
+        <img alt="Samurai Spa Collage"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/19.webp" />
+       </div>
+       <div class="w-[500px] aspect-[4/3] bg-surface-container-high overflow-hidden">
+        <img alt="Samurai Spa Treatment"
+         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+         src="asset/20.webp" />
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- About Me Section -->
+  <section class="py-32 md:py-48 px-8 bg-surface-container-lowest" id="about">
+   <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row gap-20">
+    <div class="md:w-1/3 flex flex-col gap-8">
+     
+     <div class="sticky top-[160px] max-w-[280px]">
+      <div class="aspect-[4/5] bg-surface-container overflow-hidden rounded-lg">
+       <img alt="Lead Designer" class="w-full h-full object-cover grayscale"
+        src="asset/designer.jpg" />
+      </div>
+      <p class="font-label text-[0.6rem] uppercase tracking-widest text-secondary mt-4">Graphic Designer / Aybolek</p>
+     </div>
+    </div>
+    <div class="md:w-2/3 space-y-12">
+     <p class="font-headline text-3xl md:text-4xl text-[#fffdd0] leading-snug">
+      I believe that design should not just be seen, but <span class="italic">felt</span>. My approach merges classical
+      Swiss grid systems with contemporary emotional textures.
+     </p>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12">
+      <div>
+       <h4
+        class="font-label text-xs uppercase tracking-widest text-secondary mb-4 underline decoration-[#fffdd0]/20 underline-offset-8">
+        Philosophy</h4>
+       <p class="text-on-surface leading-relaxed">
+        Minimalizm, bir boşluk veya eksiklik hali değil; özün, en saf haliyle var olmasıdır. Tasarımdaki her bir noktanın
+        anlatacak bir hikayesi olmalı ki, ortaya çıkan o içten ahenk, izleyiciyi marka hikayesinin kalbine doğru bir yolculuğa
+        çıkarabilsin.
+       </p>
+      </div>
+      <div>
+       <h4
+        class="font-label text-xs uppercase tracking-widest text-secondary mb-4 underline decoration-[#fffdd0]/20 underline-offset-8">
+        Experience</h4>
+       <p class="text-on-surface leading-relaxed">
+        Over 8 years of collaborating with international fashion houses, architectural firms, and boutique lifestyle
+        brands to define their digital presence.
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Contact Section -->
+  <section class="py-32 px-8 bg-surface-container-low" id="contact">
+   <div class="max-w-screen-2xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
+     <div>
+      <h2 class="font-headline text-5xl md:text-7xl font-bold text-[#fffdd0] mb-8 kerning-tight">Let's <span
+        class="italic font-normal">Connect</span>.</h2>
+      <p class="text-xl text-on-surface mb-12 max-w-md">Currently accepting select projects for Q4 2026 and beyond.</p>
+      <div class="space-y-6">
+       <a class="block group" href="mailto:hello@lna.design">
+        <span class="font-label text-xs text-secondary uppercase tracking-[0.2em] block mb-1">Email</span>
+        <span
+         class="text-2xl font-headline text-[#fffdd0] border-b border-transparent group-hover:border-[#fffdd0] transition-all">kerimovaybolek@gmail.com</span>
+       </a>
+       <div class="pt-8 flex gap-8">
+        <a class="font-label text-xs uppercase tracking-widest text-secondary hover:text-[#fffdd0]"
+         href="https://www.instagram.com/luna_designs_94?igsh=ZGpnMHBjbWthbm1v">Instagram</a>
+        <a class="font-label text-xs uppercase tracking-widest text-secondary hover:text-[#fffdd0]"
+         href="https://www.linkedin.com/in/aybolek-kerimov-a5b220262">LinkedIn</a>
+        <a class="font-label text-xs uppercase tracking-widest text-secondary hover:text-[#fffdd0]" href="#">Behance</a>
+       </div>
+      </div>
+     </div>
+     <div class="bg-surface p-10">
+      <form class="space-y-10">
+       <div class="relative">
+        <input
+         class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-[#fffdd0] font-headline text-lg py-4 placeholder:text-secondary/30"
+         id="name" name="name" placeholder="Full Name" type="text" />
+       </div>
+       <div class="relative">
+        <input
+         class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-[#fffdd0] font-headline text-lg py-4 placeholder:text-secondary/30"
+         id="email" name="email" placeholder="Email Address" type="email" />
+       </div>
+       <div class="relative">
+        <textarea
+         class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-[#fffdd0] font-headline text-lg py-4 placeholder:text-secondary/30"
+         id="message" name="message" placeholder="Your Message" rows="4"></textarea>
+       </div>
+       <button
+        class="w-full py-6 font-label uppercase tracking-[0.2em] text-[0.75rem] border border-outline hover:bg-[#fffdd0] hover:text-[#0a101e] transition-all duration-500"
+        type="submit">Send Inquiry</button>
+      </form>
+     </div>
+    </div>
+   </div>
+  </section>
+ </main>
+ <!-- Footer -->
+ <footer class="bg-[#0a101e]">
+  <div
+   class="flex flex-col md:flex-row justify-between items-center w-full px-8 py-12 max-w-screen-2xl mx-auto border-t border-[#fffdd0]/10">
+   <div class="mb-8 md:mb-0">
+    <a class="flex items-center" href="#hero">
+     <img alt="LNA Designs" class="h-10 w-auto object-contain opacity-80"
+      src="asset/LUNA LOGO.png" />
+    </a>
+   </div>
+   <div class="flex flex-col md:flex-row items-center gap-8">
+    <p class="font-label text-[0.75rem] tracking-widest uppercase text-[#cac7b3]">© 2026 LUNA DESIGNS. All rights
+     reserved.</p>
+   
+   </div>
+  </div>
+ </footer>
+ <!-- Tonal Layering Elements (Subtle Decorative) -->
+ <div class="fixed bottom-10 right-10 pointer-events-none opacity-20 hidden lg:block">
+  <span class="font-label text-[0.6rem] uppercase tracking-[1em] vertical-text text-secondary">ESTABLISHED 2026 / KOCAELI
+   — IZMIT</span>
+ </div>
+</body>
+
+</html>
